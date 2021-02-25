@@ -7,6 +7,14 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { IndexComponent } from './pages/index/index.component';
 import { HistoryComponent } from './components/history/history.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';//Formularios
+import { CharactersComponent } from './pages/characters/characters.component';
+import { CharactershistoryComponent } from './components/charactershistory/charactershistory.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -14,11 +22,20 @@ import { HistoryComponent } from './components/history/history.component';
     MenuComponent,
     CarouselComponent,
     IndexComponent,
-    HistoryComponent,    
+    HistoryComponent,
+    FooterComponent,
+    ContactUsComponent,
+    CharactersComponent,
+    CharactershistoryComponent,
+    ContactComponent,
+    LoginComponent,
+    DashboardComponent,    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

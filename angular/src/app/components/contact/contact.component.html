@@ -1,0 +1,33 @@
+<section class="container my-5">
+    <article class="p-2 mb-3 bg-primary text-white font-weight-bold"><span>CONTACT US</span></article>
+    <article class="card p-4">
+        <form ngNativeValidate (ngSubmit)="sendMessage()">
+
+            <section class="mb-3">
+                <label for="txtName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="txtName" aria-describedby="NameHelp" [(ngModel)]="contactUsInfo.name" [ngModelOptions]={standalone:true}>
+                <article id="NameHelp" class="form-text text-danger" *ngIf="contactUsInfoValidator.name">Name no valido</article>
+            </section>
+
+            <section class="mb-3">
+                <label for="txtEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="txtEmail" aria-describedby="EmailHelp" [(ngModel)]="contactUsInfo.email" [ngModelOptions]={standalone:true}>
+                <article id="EmailHelp" class="form-text text-danger" *ngIf="contactUsInfoValidator.email">Email Address no valido</article>
+            </section>
+
+            <section class="mb-3">
+                <label for="txtPhoneNumber" class="form-label">Phone Number</label>
+                <input type="number" class="form-control" id="txtPhoneNumber" aria-describedby="PhoneNumberHelp" [(ngModel)]="contactUsInfo.phoneNumber" [ngModelOptions]={standalone:true}>
+                <article id="PhoneNumberHelp" class="form-text text-danger" *ngIf="contactUsInfoValidator.phoneNumber">Phone Number no valido</article>
+            </section>
+
+            <section class="mb-3">
+                <label for="txtMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="txtMessage" rows="3" aria-describedby="MessageHelp" [(ngModel)]="contactUsInfo.message" [ngModelOptions]={standalone:true}></textarea>
+                <article id="MessageHelp" class="form-text text-danger" *ngIf="contactUsInfoValidator.message">Message no valido</article>
+            </section>
+
+            <button type="submit" data-bs-dismiss="alert" class="btn btn-primary">Send</button>
+        </form>
+    </article>
+</section>
