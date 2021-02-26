@@ -14,7 +14,8 @@ import { CharactersComponent } from './pages/characters/characters.component';
 import { CharactershistoryComponent } from './components/charactershistory/charactershistory.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component'; 
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { IconDetailsComponent } from './components/icon-details/icon-details.component'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     CharactershistoryComponent,
     ContactComponent,
     LoginComponent,
-    DashboardComponent,    
+    DashboardComponent,
+    IconDetailsComponent,    
   ],
   imports: [
     BrowserModule,

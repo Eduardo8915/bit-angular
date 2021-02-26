@@ -19,21 +19,11 @@
         </ul>
 
         <article class="login d-flex flex-row justify-content-center mt-4">
-            <section class="icon-details" [routerLink]="['/login']">
-                <a id="login1" class="nav-link">
-                    <img src="assets/icons/user.png" alt="user" width="35px">
-                </a>
-                <p id="text">Login</p>
-            </section>
-            <section class="icon-details">
-                <a id="login2" class="nav-link" href="#">
-                    <img src="assets/icons/salir.svg" alt="logout" width="35px">
-                </a>
-                <p id="text2">Logout</p>
-            </section>
+            <app-icon-details *ngFor="let iconDetail of iconDetails" [source]="iconDetail.source" [link]="iconDetail.link" [label]="iconDetail.label"></app-icon-details>
             <section class="icon-details">
                 <p class="nav-user" id="loginUser"></p>
             </section>
         </article>
+
     </section>
 </nav>
