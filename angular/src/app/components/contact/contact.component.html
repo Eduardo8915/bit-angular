@@ -8,7 +8,6 @@
                 <input type="text" class="form-control" id="txtName" aria-describedby="NameHelp" [(ngModel)]="contactUsInfo.name" [ngModelOptions]={standalone:true}>
                 <article id="NameHelp" class="form-text text-danger" *ngIf="contactUsInfoValidator.name">Name no valido</article>
             </section>
-
             <section class="mb-3">
                 <label for="txtEmail" class="form-label">Email Address</label>
                 <input type="email" class="form-control" id="txtEmail" aria-describedby="EmailHelp" [(ngModel)]="contactUsInfo.email" [ngModelOptions]={standalone:true}>
