@@ -5,6 +5,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
   },
   {
     path:'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate:[AuthGuard]
 
   }
 ];

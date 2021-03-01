@@ -16,6 +16,11 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { IconDetailsComponent } from './components/icon-details/icon-details.component'; 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +42,11 @@ import { IconDetailsComponent } from './components/icon-details/icon-details.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

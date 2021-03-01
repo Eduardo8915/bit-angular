@@ -32,10 +32,15 @@ body {
     text-align: center;
 }
 
+.icon-details-user {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
 .nav-user {
     display: block;
-    padding-top: 8;
-    color: crimson;
+    color: green;
 }
 
 .carousel-item>img {

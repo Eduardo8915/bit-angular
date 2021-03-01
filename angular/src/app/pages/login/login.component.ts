@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,46 +9,47 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router  ) { 
-
-  }
+  error:string;
+  isError: boolean;
+  form: FormGroup;
+  constructor(
+    private router:Router,
+    private formBuilder: FormBuilder,
+    private authService:AuthService
+    ) { }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      email:['',Validators.required],
+      password:['',Validators.required]
+    })
   }
 
-  loginInfo={
-    email:"",
-    password:"",
+  get email():string{
+    return this.form.get('email').value;
   }
 
-  loginInfoValidator={
-    email:false,
-    password:false,
+  get password():string{
+    return this.form.get('password').value;
   }
 
   login(){
-
-    var validator =  new Boolean(false);
-    this.loginInfoValidator.email = false;
-    this.loginInfoValidator.password = false;
-    
-    if(this.loginInfo.email === ""){
-      this.loginInfoValidator.email = true;
-      validator = true;
-    }
-    if(this.loginInfo.password === ""){
-      this.loginInfoValidator.password = true;
-      validator = true;
-    }
-    
-    if(validator==false){
-      localStorage.setItem('loginemail',this.loginInfo.email);
+    this.authService.login(this.email,this.password)
+    .then(response=>{
+      this.error = '';
+      this.isError = false;
+      this.authService.setUser(response.user);
       this.router.navigate(['/dashboard']);
-    }
-   
-   
-  }
+      //console.log('then', response);
 
+    })
+    .catch(err=>{
+      this.isError = true;
+      this.error = err.message
+      //console.log('catch',err.message);
+    })
+  }
+  
 
 
 }

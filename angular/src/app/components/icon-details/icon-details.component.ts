@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import firebase from 'firebase';
+import User = firebase.User;
 
 @Component({
   selector: 'app-icon-details',
@@ -11,13 +14,30 @@ export class IconDetailsComponent implements OnInit {
   @Input() source:string;
   @Input() label:string;
   @Input() link:string;
+  @Output() message = new EventEmitter<string>();
+
   constructor(
-  ) { }
+    private authService : AuthService
+  ) {
+      //console.log('icon-details');
+
+   }
+
+  get user(): User {
+    return this.authService.user;
+  }
+
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;
+  }
 
   ngOnInit(): void {
+    //console.log('user',this.user);
+    //console.log('isLoggedIn',this.isLoggedIn);
+  }
 
-      
-
+  emitEvent(label: string): void {
+    this.message.emit(label);
   }
 
 }

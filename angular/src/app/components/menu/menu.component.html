@@ -17,13 +17,17 @@
                 <a class="nav-link">Contact Us</a>
             </li>
         </ul>
-
-        <article class="login d-flex flex-row justify-content-center mt-4">
-            <app-icon-details *ngFor="let iconDetail of iconDetails" [source]="iconDetail.source" [link]="iconDetail.link" [label]="iconDetail.label"></app-icon-details>
-            <section class="icon-details">
-                <p class="nav-user" id="loginUser"></p>
+        <article class="login d-flex flex-row justify-content-center mt-5">
+            <section class="icon-details-user" *ngIf="isLoggedIn">
+                <a id="login1" class="nav-link" href="#">
+                    <img src="assets/icons/imgUser.svg" alt="imgUser" width="35px">
+                </a>
+                <p class="nav-user" id="loginUser">{{user.email}}</p>
             </section>
+            <app-icon-details *ngFor="let iconDetail of iconDetails" [source]="iconDetail.source" [link]="iconDetail.link" [label]="iconDetail.label" (click)="iconDetail.label === 'Logout' ? logout() : null"></app-icon-details>
+
         </article>
+
 
     </section>
 </nav>
